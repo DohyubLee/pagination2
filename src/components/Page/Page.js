@@ -59,39 +59,13 @@ class Page extends Component {
             startPage = 1;
             endPage = totalPages;
         } else {
-            if (currentPage <= 5) {
-                startPage = 1;
-                endPage = 5;
+            if (currentPage % 5 !== 0) {
+                startPage = currentPage - (currentPage % 5) + 1;
+                endPage = currentPage - (currentPage % 5) + 5;
             } else {
-                if (currentPage % 5 !== 0) {
-                    startPage = currentPage - (currentPage % 5) + 1;
-                    endPage = currentPage - (currentPage % 5) + 5;
-                } else {
-                    startPage = currentPage - 5 + 1;
-                    endPage = currentPage
-                }
+                startPage = currentPage - 5 + 1;
+                endPage = currentPage
             }
-            // if (currentPage === totalPages) { //Last
-            //     console.log("Last")
-            //     startPage = currentPage - (totalPages % 5) + 1;
-            //     endPage = totalPages
-            // } else if ((currentPage + 4) > totalPages) { //Next 초과
-            //     console.log("Next")
-            //     startPage = currentPage;
-            //     endPage = currentPage + (totalPages % 5) - 1;
-            // } else if (currentPage === 1) { //first
-            //     console.log("first");
-            //     startPage = currentPage;
-            //     endPage = currentPage + 4;
-            // } else if (currentPage % 5 === 0) { //Prev
-            //     console.log("Prev")
-            //     startPage = currentPage - 4;
-            //     endPage = currentPage;
-            // } else {
-            //     console.log("ddd")
-            //     startPage = currentPage;
-            //     endPage = currentPage + 4;
-            // }
         }
         startIndex = (currentPage - 1) * pager.pageSize;
         endIndex = Math.min(startIndex + pager.pageSize - 1, totalItemsLength - 1);
