@@ -1,0 +1,20 @@
+.container {
+  background-color: blanchedalmond;
+  .header {
+    width: 1300px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+    h2 {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+  .item_list {
+    border: 1px solid black;
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
